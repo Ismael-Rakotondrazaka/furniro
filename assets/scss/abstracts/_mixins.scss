@@ -1,0 +1,89 @@
+@use "sass:color";
+@use "variables" as v;
+@use "sass:map";
+
+/* --------------------------------- button --------------------------------- */
+@mixin button-base() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: v.$button-border-radius;
+  cursor: pointer;
+  transition: v.$button-transition;
+  user-select: none;
+  white-space: nowrap;
+  text-decoration: none;
+  outline: none;
+}
+
+@mixin button-size($size) {
+  $size-config: map.get(v.$button-sizes, $size);
+  padding: map.get($size-config, padding);
+  font-size: map.get($size-config, font-size);
+  gap: map.get($size-config, gap);
+}
+
+@mixin button-primary() {
+  background-color: v.$color-primary;
+  color: v.$color-white;
+
+  &:hover:not(:disabled) {
+    background-color: color.adjust(v.$color-primary, $lightness: -10%);
+  }
+
+  &:focus:not(:disabled) {
+    outline: 2px solid v.$color-primary;
+    outline-offset: 2px;
+  }
+
+  &:active:not(:disabled) {
+    background-color: color.adjust(v.$color-primary, $lightness: -15%);
+  }
+
+  &:disabled {
+    background-color: v.$color-text-secondary;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-secondary() {
+  background-color: transparent;
+  color: v.$color-primary;
+  border: 2px solid v.$color-primary;
+
+  &:hover:not(:disabled) {
+    background-color: v.$color-primary;
+    color: v.$color-white;
+  }
+
+  &:focus:not(:disabled) {
+    outline: 2px solid v.$color-primary;
+    outline-offset: 2px;
+  }
+
+  &:active:not(:disabled) {
+    background-color: color.adjust(v.$color-primary, $lightness: -10%);
+    color: v.$color-white;
+  }
+
+  &:disabled {
+    background-color: #f5f5f5;
+    border-color: v.$color-text-secondary;
+    color: v.$color-text-secondary;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-icon($position, $spacing) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing;
+
+  @if $position == "left" {
+    flex-direction: row-reverse;
+  } @else if $position == "right" {
+    flex-direction: row;
+  }
+}

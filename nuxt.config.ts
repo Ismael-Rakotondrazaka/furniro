@@ -3,6 +3,8 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
 
+  css: ['~/assets/scss/main.scss'],
+
   devtools: { enabled: true },
 
   eslint: {
@@ -14,6 +16,17 @@ export default defineNuxtConfig({
         semi: true,
       },
     },
+  },
+
+  icon: {
+    customCollections: [
+      {
+        dir: './assets/icons',
+        normalizeIconName: true,
+        prefix: 'internal',
+      },
+    ],
+    mode: 'svg',
   },
 
   modules: [

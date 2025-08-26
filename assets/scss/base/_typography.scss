@@ -1,0 +1,40 @@
+@use "../abstracts/typography" as t;
+
+/* --------------------------------- headings -------------------------------- */
+.heading-1 {
+  @include t.heading-1();
+}
+
+.heading-2 {
+  @include t.heading-2();
+}
+
+.heading-3 {
+  @include t.heading-3();
+}
+
+.heading-4 {
+  @include t.heading-4();
+}
+
+/* --------------------------------- text sizes -------------------------------- */
+.text-small {
+  @include t.text-small();
+}
+
+.text-medium {
+  @include t.text-medium();
+}
+
+.text-large {
+  @include t.text-large();
+}
+
+/* --------------------------------- text colors -------------------------------- */
+.text-primary {
+  @include t.text-primary();
+}
+
+.text-secondary {
+  @include t.text-secondary();
+}

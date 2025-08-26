@@ -1,0 +1,57 @@
+/* --------------------------------- colors -------------------------------- */
+$color-primary: #b88e2f;
+$color-white: #ffffff;
+$color-black: #000000;
+
+$color-text-primary: #333333;
+$color-text-secondary: #9f9f9f;
+
+/* --------------------------------- typography -------------------------------- */
+$font-family-primary: "Poppins", sans-serif;
+
+$font-sizes: (
+  small: 14px,
+  medium: 18px,
+  large: 24px,
+);
+
+$line-heights: (
+  small: 20px,
+  medium: 24px,
+  large: 32px,
+);
+
+$font-weights: (
+  regular: 400,
+  medium: 500,
+  bold: 700,
+);
+
+/* --------------------------------- buttons -------------------------------- */
+$button-sizes: (
+  small: (
+    padding: 0.75rem 1.5rem,
+    font-size: 14px,
+    gap: 0.5rem,
+  ),
+  medium: (
+    padding: 1rem 2rem,
+    font-size: 15px,
+    gap: 0.75rem,
+  ),
+  large: (
+    padding: 1.5625rem 4.5rem,
+    font-size: 16px,
+    gap: 0.625rem,
+  ),
+);
+
+$button-text-properties: (
+  font-family: $font-family-primary,
+  font-weight: 700,
+  text-transform: uppercase,
+  color: $color-white,
+);
+
+$button-border-radius: 0.25rem;
+$button-transition: all 0.2s ease;
