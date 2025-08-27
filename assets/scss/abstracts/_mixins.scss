@@ -87,3 +87,54 @@
     flex-direction: row;
   }
 }
+
+/* --------------------------------- responsive spacing -------------------------------- */
+@mixin responsive-padding(
+  $mobile: v.$spacing-sm,
+  $tablet: v.$spacing-md,
+  $desktop: v.$spacing-lg
+) {
+  padding: $mobile;
+
+  @media (min-width: v.$breakpoint-tablet) {
+    padding: $tablet;
+  }
+
+  @media (min-width: v.$breakpoint-desktop) {
+    padding: $desktop;
+  }
+}
+
+@mixin responsive-margin(
+  $mobile: v.$spacing-sm,
+  $tablet: v.$spacing-md,
+  $desktop: v.$spacing-lg
+) {
+  margin: $mobile;
+
+  @media (min-width: v.$breakpoint-tablet) {
+    margin: $tablet;
+  }
+
+  @media (min-width: v.$breakpoint-desktop) {
+    margin: $desktop;
+  }
+}
+
+@mixin responsive-container() {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 v.$container-padding-mobile;
+
+  @media (min-width: v.$breakpoint-tablet) {
+    padding: 0 v.$container-padding-tablet;
+  }
+
+  @media (min-width: v.$breakpoint-desktop) {
+    padding: 0 v.$container-padding-desktop;
+  }
+
+  @media (min-width: v.$breakpoint-large) {
+    padding: 0 v.$container-padding-large;
+  }
+}

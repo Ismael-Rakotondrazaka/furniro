@@ -1,9 +1,10 @@
 /* --------------------------------- colors -------------------------------- */
 $color-primary: #b88e2f;
+$color-primary-dark: #9a7a28;
 $color-white: #ffffff;
 $color-black: #000000;
 
-$color-text-primary: #333333;
+$color-text-primary: #000000;
 $color-text-secondary: #9f9f9f;
 
 /* --------------------------------- typography -------------------------------- */
@@ -11,8 +12,8 @@ $font-family-primary: "Poppins", sans-serif;
 
 $font-sizes: (
   small: 14px,
-  medium: 18px,
-  large: 24px,
+  medium: 16px,
+  large: 25px,
 );
 
 $line-heights: (
@@ -24,7 +25,7 @@ $line-heights: (
 $font-weights: (
   regular: 400,
   medium: 500,
-  bold: 700,
+  bold: 600,
 );
 
 /* --------------------------------- buttons -------------------------------- */
@@ -55,3 +56,23 @@ $button-text-properties: (
 
 $button-border-radius: 0.25rem;
 $button-transition: all 0.2s ease;
+
+/* --------------------------------- breakpoints -------------------------------- */
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large: 1200px;
+
+/* --------------------------------- spacing -------------------------------- */
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-2xl: 4rem;
+$spacing-3xl: 6rem;
+
+$container-padding-mobile: 1rem;
+$container-padding-tablet: 1.5rem;
+$container-padding-desktop: 2rem;
+$container-padding-large: 2.5rem;
