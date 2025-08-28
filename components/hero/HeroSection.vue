@@ -2,7 +2,6 @@
   <section class="hero-section">
     <div class="hero-section__container">
       <div
-        v-motion-slide-visible-once-right
         class="hero-section__content-box"
       >
         <p class="hero-section__tagline">
