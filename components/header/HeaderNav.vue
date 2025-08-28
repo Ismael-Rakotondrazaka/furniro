@@ -1,35 +1,32 @@
 <template>
   <nav class="header-nav">
     <ul class="header-nav__list">
-      <li class="header-nav__item">
+      <li
+        v-for="item in navItems"
+        :key="item.label"
+        class="header-nav__item"
+      >
         <NuxtLink
-          :to="{ name: 'index' }"
+          :to="item.to"
           class="header-nav__link"
-        >Home</NuxtLink>
-      </li>
-      <li class="header-nav__item">
-        <NuxtLink
-          :to="{ name: 'index' }"
-          class="header-nav__link"
-        >About</NuxtLink>
-      </li>
-      <li class="header-nav__item">
-        <NuxtLink
-          :to="{ name: 'index' }"
-          class="header-nav__link"
-        >Services</NuxtLink>
-      </li>
-      <li class="header-nav__item">
-        <NuxtLink
-          :to="{ name: 'index' }"
-          class="header-nav__link"
-        >Contact</NuxtLink>
+        >{{ item.label }}</NuxtLink>
       </li>
     </ul>
   </nav>
 </template>
 
-<script setup>
+<script setup lang="ts">
+type NavItem = {
+  label: string;
+  to: { name: string };
+};
+
+const navItems: NavItem[] = [
+  { label: 'Home', to: { name: 'index' } },
+  { label: 'About', to: { name: 'index' } },
+  { label: 'Services', to: { name: 'index' } },
+  { label: 'Contact', to: { name: 'index' } },
+];
 </script>
 
 <style lang="scss" scoped>
