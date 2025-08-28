@@ -73,11 +73,12 @@ const buttonClass = computed(() => [
       name="internal:loader"
       class="button__icon"
     />
-    <slot
+    <span
       v-else-if="$slots.icon"
-      name="icon"
       class="button__icon"
-    />
+    >
+      <slot name="icon" />
+    </span>
   </component>
 </template>
 
