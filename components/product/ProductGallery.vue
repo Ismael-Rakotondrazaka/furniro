@@ -11,7 +11,8 @@
         :src="image.src"
         :alt="image.alt"
         class="product-gallery__image"
-        width="605"
+        width="448"
+        height="144"
       />
     </div>
   </div>
