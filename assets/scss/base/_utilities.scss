@@ -1,0 +1,82 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+/* --------------------------------- responsive spacing utilities -------------------------------- */
+.responsive-container {
+  @include m.responsive-container;
+}
+
+.responsive-padding {
+  @include m.responsive-padding;
+}
+
+.responsive-margin {
+  @include m.responsive-margin;
+}
+
+/* --------------------------------- spacing utilities -------------------------------- */
+.p-xs {
+  padding: v.$spacing-xs;
+}
+.p-sm {
+  padding: v.$spacing-sm;
+}
+.p-md {
+  padding: v.$spacing-md;
+}
+.p-lg {
+  padding: v.$spacing-lg;
+}
+.p-xl {
+  padding: v.$spacing-xl;
+}
+.p-2xl {
+  padding: v.$spacing-2xl;
+}
+.p-3xl {
+  padding: v.$spacing-3xl;
+}
+
+.m-xs {
+  margin: v.$spacing-xs;
+}
+.m-sm {
+  margin: v.$spacing-sm;
+}
+.m-md {
+  margin: v.$spacing-md;
+}
+.m-lg {
+  margin: v.$spacing-lg;
+}
+.m-xl {
+  margin: v.$spacing-xl;
+}
+.m-2xl {
+  margin: v.$spacing-2xl;
+}
+.m-3xl {
+  margin: v.$spacing-3xl;
+}
+
+.gap-xs {
+  gap: v.$spacing-xs;
+}
+.gap-sm {
+  gap: v.$spacing-sm;
+}
+.gap-md {
+  gap: v.$spacing-md;
+}
+.gap-lg {
+  gap: v.$spacing-lg;
+}
+.gap-xl {
+  gap: v.$spacing-xl;
+}
+.gap-2xl {
+  gap: v.$spacing-2xl;
+}
+.gap-3xl {
+  gap: v.$spacing-3xl;
+}

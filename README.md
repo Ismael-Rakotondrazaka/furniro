@@ -1,23 +1,39 @@
-# Nuxt Minimal Starter
+# Furniro
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Discover our collection of furniture and home accessories. Find the perfect piece for your home.
 
-## Setup
+## URL
+
+https://furniro-three-smoky.vercel.app/
+
+## Screenshots
+
+![Furniro Homepage Screenshot](./screenshot.png)
+
+## Features
+
+- Responsive design
+- Type-safe with TypeScript
+- Accessibility optimized
+- Modular component architecture
+- Image optimization with Nuxt Image
+- SEO optimized with Nuxt SEO
+- Font optimization with Nuxt Font
+- Icon optimization with Nuxt Icon
+
+## Tech Stack
+
+- **Framework**: Nuxt 3
+- **Styling**: SCSS
+- **Language**: TypeScript
+- **Package Manager**: pnpm
+
+## Project Setup
 
 Make sure to install dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
@@ -25,17 +41,7 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
 ## Production
@@ -43,33 +49,18 @@ bun run dev
 Build the application for production:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
 pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
 Locally preview production build:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
 pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Development Guidelines
+
+- Keep components small and reusable
+- Use SCSS variables and mixins for consistency
+- Follow BEM naming convention for CSS classes
+- Ensure accessibility with semantic HTML elements
