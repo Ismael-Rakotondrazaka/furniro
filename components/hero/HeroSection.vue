@@ -1,7 +1,10 @@
 <template>
   <section class="hero-section">
     <div class="hero-section__container">
-      <div class="hero-section__content-box">
+      <div
+        v-motion-slide-visible-once-right
+        class="hero-section__content-box"
+      >
         <p class="hero-section__tagline">
           New Arrival
         </p>
@@ -23,7 +26,16 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
+const img = useImage();
+
+const backgroundUrl = computed(() =>
+  `url('${img('/images/hero/hero-illustration.jpg', {
+    fit: 'inside',
+    height: 1080,
+    width: 1920,
+  })}')`,
+);
 </script>
 
 <style lang="scss" scoped>
@@ -46,7 +58,7 @@ $font-family: 'Poppins', sans-serif;
   position: relative;
   width: 100%;
   height: calc(100vh - 15rem);
-  background-image: url('~/assets/images/hero/hero-illustration.jpg'); /* Placeholder for your image */
+  background-image: v-bind(backgroundUrl);
   background-size: cover;
   background-position: center;
   @include flex-center;
