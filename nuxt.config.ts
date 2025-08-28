@@ -39,6 +39,28 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/icon',
-    '@nuxt/test-utils',
+    '@nuxt/test-utils/module',
+    '@vueuse/nuxt',
+    '@vueuse/motion/nuxt',
+    '@nuxt/image',
+    '@nuxtjs/seo',
   ],
+
+  ogImage: {
+    enabled: false,
+  },
+
+  runtimeConfig: {
+    public: {
+      appUrl: 'http://localhost:3000',
+    },
+  },
+
+  site: {
+    defaultLocale: 'en',
+    description:
+      'Discover our collection of furniture and home accessories. Find the perfect piece for your home.',
+    indexable: true,
+    name: 'Furniro',
+  },
 });
