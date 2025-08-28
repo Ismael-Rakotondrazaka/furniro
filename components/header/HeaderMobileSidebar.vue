@@ -3,7 +3,7 @@
     :class="['mobile-sidebar', { 'mobile-sidebar--open': isOpen }]"
     role="dialog"
     aria-modal="true"
-    :aria-label="ariaLabel"
+    aria-label="Mobile navigation menu"
     :aria-hidden="!isOpen"
   >
     <div
@@ -21,7 +21,7 @@
         <button
           ref="closeButton"
           class="mobile-sidebar__close"
-          :aria-label="closeButtonLabel"
+          aria-label="Close navigation menu"
           @click="closeSidebar"
           @keydown.escape="closeSidebar"
         >
@@ -31,7 +31,7 @@
 
       <nav
         class="mobile-sidebar__nav"
-        :aria-label="navLabel"
+        aria-label="Main navigation"
       >
         <ul class="mobile-sidebar__nav-list">
           <li
@@ -53,7 +53,7 @@
 
       <div class="mobile-sidebar__actions">
         <h3 class="mobile-sidebar__actions-title">
-          {{ actionsTitle }}
+          Quick Actions
         </h3>
         <ul class="mobile-sidebar__actions-list">
           <li
@@ -82,8 +82,6 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick, ref, watch } from 'vue';
-
 interface Emits {
   close: [];
 }
@@ -104,79 +102,69 @@ interface NavigationItem {
 }
 
 interface Props {
-  actionsTitle?: string;
-  ariaLabel?: string;
-  closeButtonLabel?: string;
-  headerActions?: HeaderAction[];
   isOpen: boolean;
-  navigationItems?: NavigationItem[];
-  navLabel?: string;
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  actionsTitle: 'Quick Actions',
-  ariaLabel: 'Mobile navigation menu',
-  closeButtonLabel: 'Close navigation menu',
-  headerActions: () => [
-    {
-      ariaLabel: 'Go to account page',
-      icon: 'internal:account-alert-outline',
-      id: 'account',
-      label: 'Account',
-      to: '/account',
-    },
-    {
-      ariaLabel: 'Open search page',
-      icon: 'internal:search',
-      id: 'search',
-      label: 'Search',
-      to: '/search',
-    },
-    {
-      ariaLabel: 'View wishlist',
-      icon: 'internal:heart',
-      id: 'wishlist',
-      label: 'Wishlist',
-      to: '/wishlist',
-    },
-    {
-      ariaLabel: 'View shopping cart',
-      icon: 'internal:shopping-cart-outlined',
-      id: 'cart',
-      label: 'Cart',
-      to: '/cart',
-    },
-  ],
-  navigationItems: () => [
-    {
-      id: 'home',
-      isActive: true,
-      label: 'Home',
-      to: '/',
-    },
-    {
-      id: 'about',
-      label: 'About',
-      to: '/about',
-    },
-    {
-      id: 'services',
-      label: 'Services',
-      to: '/services',
-    },
-    {
-      id: 'contact',
-      label: 'Contact',
-      to: '/contact',
-    },
-  ],
-  navLabel: 'Main navigation',
-});
+defineProps<Props>();
 
 const emit = defineEmits<Emits>();
 
-const sidebarContent = ref<HTMLElement>();
 const closeButton = ref<HTMLButtonElement>();
+
+const headerActions: HeaderAction[] = [
+  {
+    ariaLabel: 'Go to account page',
+    icon: 'internal:account-alert-outline',
+    id: 'account',
+    label: 'Account',
+    to: '/',
+  },
+  {
+    ariaLabel: 'Open search page',
+    icon: 'internal:search',
+    id: 'search',
+    label: 'Search',
+    to: '/',
+  },
+  {
+    ariaLabel: 'View wishlist',
+    icon: 'internal:heart',
+    id: 'wishlist',
+    label: 'Wishlist',
+    to: '/',
+  },
+  {
+    ariaLabel: 'View shopping cart',
+    icon: 'internal:shopping-cart-outlined',
+    id: 'cart',
+    label: 'Cart',
+    to: '/',
+  },
+];
+
+const navigationItems: NavigationItem[] = [
+  {
+    id: 'home',
+    isActive: true,
+    label: 'Home',
+    to: '/',
+  },
+  {
+    id: 'about',
+    label: 'About',
+    to: '/',
+  },
+  {
+    id: 'services',
+    label: 'Services',
+    to: '/',
+  },
+  {
+    id: 'contact',
+    label: 'Contact',
+    to: '/',
+  },
+];
 
 const closeSidebar = () => {
   emit('close');
@@ -189,57 +177,6 @@ const handleNavClick = () => {
 const handleActionClick = () => {
   closeSidebar();
 };
-
-const focusFirstInteractiveElement = () => {
-  nextTick(() => {
-    if (closeButton.value) {
-      closeButton.value.focus();
-    }
-  });
-};
-
-const trapFocus = (event: KeyboardEvent) => {
-  if (!sidebarContent.value) return;
-
-  const focusableElements = sidebarContent.value.querySelectorAll(
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
-  );
-
-  const firstElement = focusableElements[0] as HTMLElement;
-  const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
-
-  if (event.key === 'Tab') {
-    if (event.shiftKey) {
-      if (document.activeElement === firstElement) {
-        event.preventDefault();
-        lastElement.focus();
-      }
-    }
-    else {
-      if (document.activeElement === lastElement) {
-        event.preventDefault();
-        firstElement.focus();
-      }
-    }
-  }
-};
-
-watch(() => props.isOpen, (newValue) => {
-  if (newValue) {
-    focusFirstInteractiveElement();
-    document.addEventListener('keydown', trapFocus);
-    document.body.style.overflow = 'hidden';
-  }
-  else {
-    document.removeEventListener('keydown', trapFocus);
-    document.body.style.overflow = '';
-  }
-});
-
-onUnmounted(() => {
-  document.removeEventListener('keydown', trapFocus);
-  document.body.style.overflow = '';
-});
 </script>
 
 <style lang="scss" scoped>
