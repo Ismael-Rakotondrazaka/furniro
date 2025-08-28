@@ -35,6 +35,17 @@ export default defineNuxtConfig({
     mode: 'svg',
   },
 
+  image: {
+    screens: {
+      'hero-height': 1080,
+      'hero-width': 1920,
+      'product-height': 144,
+      'product-width': 448,
+      'range-height': 480,
+      'range-width': 381,
+    },
+  },
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/fonts',
