@@ -1,0 +1,119 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+@use "sass:map";
+
+.button {
+  @include m.button-base();
+  @include m.button-size(medium);
+  @include m.button-primary();
+
+  font-family: map.get(v.$button-text-properties, font-family);
+  font-weight: map.get(v.$button-text-properties, font-weight);
+  text-transform: map.get(v.$button-text-properties, text-transform);
+  color: map.get(v.$button-text-properties, color);
+
+  /* Size variants */
+  &--small {
+    @include m.button-size(small);
+  }
+
+  &--medium {
+    @include m.button-size(medium);
+  }
+
+  &--large {
+    @include m.button-size(large);
+  }
+
+  /* Type variants */
+  &--primary {
+    @include m.button-primary();
+  }
+
+  &--secondary {
+    @include m.button-secondary();
+  }
+
+  /* Text button variant */
+  &--text {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    text-transform: none;
+    border-radius: 0;
+
+    &.button--primary {
+      color: v.$color-primary;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+
+      &:hover:not(:disabled) {
+        background-color: transparent;
+        text-decoration-color: v.$color-primary;
+      }
+
+      &:focus:not(:disabled) {
+        outline: 2px solid v.$color-primary;
+        outline-offset: 2px;
+        text-decoration-color: transparent;
+      }
+
+      &:active:not(:disabled) {
+        background-color: transparent;
+        text-decoration-color: v.$color-primary;
+      }
+    }
+
+    &.button--secondary {
+      color: v.$color-text-primary;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+
+      &:hover:not(:disabled) {
+        background-color: transparent;
+        color: v.$color-primary;
+        text-decoration-color: v.$color-primary;
+      }
+
+      &:focus:not(:disabled) {
+        outline: 2px solid v.$color-primary;
+        outline-offset: 2px;
+      }
+
+      &:active:not(:disabled) {
+        background-color: transparent;
+        color: v.$color-primary;
+        text-decoration-color: v.$color-primary;
+      }
+    }
+
+    &:disabled {
+      color: v.$color-text-secondary;
+      text-decoration-color: transparent;
+      cursor: not-allowed;
+    }
+  }
+
+  /* Loading state */
+  &--loading {
+    pointer-events: none;
+    opacity: 0.8;
+
+    .button__icon {
+      animation: spin 2s linear infinite;
+    }
+  }
+
+  /* Icon support */
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
